@@ -2,7 +2,7 @@
 
 A Moderation Bot For The Nyaakuza
 
-![](nyaakuzalogoflipped.png-)
+![](nyaakuzalogoflipped.png)
 
 Install Instructions
 
