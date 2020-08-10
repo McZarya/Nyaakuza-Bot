@@ -1,0 +1,20 @@
+ // This Is just a Empty Text Document I use During Development to write things out I dont want to lose or some shit like that.
+// As long as I dont go smooth brain mode this should be gone after the bots done development, so if your reading this now that means im a moron
+
+===============================================================================================================
+
+ Customers In the Bar
+
+===============================================================================================================
+
+    client.user.setStatus('dnd') //Bot's status and game/streaming. dnd, idle, online
+    client.user.setPresence({
+        game: {
+            name: 'Customers In the Bar ',
+            type: "Watching", // Playing, Listening, Watching, STREAMING
+			// url: "URL Here" <- link for stream when using the 'STREAMING' status
+        }
+    });
+});
+
+===============================================================================================================
