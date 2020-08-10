@@ -20,4 +20,4 @@ client.once('ready', () => { // Shit to be spammed in Console upon launch.
     });
 });
 
-client.login('NzQyNDg4MzQwNzYyMzI5MDg4.XzG2Jw.PuV-wULODm4U7hSY5VK0ZtDoo5k');
+client.login('');
