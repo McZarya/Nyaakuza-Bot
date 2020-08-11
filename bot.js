@@ -1,5 +1,13 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
+
+const config = require('./config.json');
+const client = new Discord.Client(); 
+
+const cmdsArray = [
+    "Wakeup - Pings The Bot To Test Connectivity",
+    " ",
+    "PlaceHolder"
+];
 
 client.once('ready', () => { // Shit to be spammed in Console upon launch.
     console.log('====================================================================================================')
@@ -20,22 +28,29 @@ client.once('ready', () => { // Shit to be spammed in Console upon launch.
     });
 });
 
-/* client.on("message", (message) => { // Pulls the Config.json file into the main bot.js
-    if(config.restrictToID == true && message.author.id != config.id) return;
 
-    if(message.channel.type == "dm") return;
 
-    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
-}); */
+client.on('message', message => { // Command List Start
+    if (!message.content.startsWith(config.prefix)) return;
 
-client.on('message', message => { // Check The Bots Connectivity
-	if (message.content === "wakeup") { 
-        message.channel.send("Fuck off i'm already awake")
-        .catch(e => {
-            message.channel.send("An error occured!... Too Bad!!!");
-          });
-	}
-});
+    const args = message.content.trim().split(/ +/g);
+    const command = args[0].slice(config.prefix.length).toLowerCase();
+//===============================================================================================================
+    if(command == "help"){
+        message.reply("Here you go.");
+        const embed = new Discord.RichEmbed()
+        .addField("Commands", cmdsArray)
+        .addField("Info", "Thanks for using this bot, If you need help DM McZarya#0001");
+        message.channel.send({embed: embed});
+}
+//===============================================================================================================
+if(command == "wakeup"){ // Check The Bots Connectivity
+    message.reply("Fuck off i'm already awake");
+}
+//===============================================================================================================
 
-client.login('');
+
+}); // Command List End
+
+
+client.login(config.token);
