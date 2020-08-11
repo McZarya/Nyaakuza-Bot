@@ -20,4 +20,22 @@ client.once('ready', () => { // Shit to be spammed in Console upon launch.
     });
 });
 
-client.login('');
+/* client.on("message", (message) => { // Pulls the Config.json file into the main bot.js
+    if(config.restrictToID == true && message.author.id != config.id) return;
+
+    if(message.channel.type == "dm") return;
+
+    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+}); */
+
+client.on('message', message => { // Check The Bots Connectivity
+	if (message.content === "wakeup") { 
+        message.channel.send("Fuck off i'm already awake")
+        .catch(e => {
+            message.channel.send("An error occured!... Too Bad!!!");
+          });
+	}
+});
+
+client.login('NzQyNDg4MzQwNzYyMzI5MDg4.XzG2Jw.XkfhSeH6sUukXf8iu2LCk0dycvY');
