@@ -1,6 +1,6 @@
 # Nyaakuza-Bot V1.0.0, Created By Reflux Software Developments And Developed By McZarya
 
-A Moderation Bot For The Nyaakuza
+A Moderation Bot For The Nyaakuza.
 
 ![](nyaakuzalogoflipped.png)
 
