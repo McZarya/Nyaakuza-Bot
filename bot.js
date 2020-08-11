@@ -38,4 +38,4 @@ client.on('message', message => { // Check The Bots Connectivity
 	}
 });
 
-client.login('NzQyNDg4MzQwNzYyMzI5MDg4.XzG2Jw.XkfhSeH6sUukXf8iu2LCk0dycvY');
+client.login('');
