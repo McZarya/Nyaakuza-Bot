@@ -6,8 +6,7 @@ A Moderation Bot For The Nyaakuza.
 
 Install Instructions
 
-1: Open bot.js in your code editor and edit the client.login(The Bot Token) at the bottom of the page.
-
+1: Open config.json in your code editor and enter the token, prefix and client id in each of the quotation marks
 Once you have that done, save the file.
 
 2: open your command prompt (cmd.exe) and type "npm install discord.js nodemon --save" without the qoutes 
