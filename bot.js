@@ -8,6 +8,8 @@ const cmdsArray = [
     " ",
     "Kick - Kicks a specified user from the server",
     " ",
+    "Ban - Bans a specified user from the server",
+    " ",
     "GitHub - Send a link to the bots GitHub",
     " "
 ];
@@ -55,7 +57,7 @@ if(command == "github"){ // Sends a link to the bots GitHub repository
     message.reply("you can find the bots GitHub repository at: https://github.com/McZarya/Nyaakuza-Bot");
 }
 //===============================================================================================================
-if(command == "kick") {
+if(command == "kick") { // Kicks a specified user
     if(message.channel.type === 'DM') { // Check if message channel is a direct message 
         message.channel.send("I can't kick from DM's. Try again in the server"); // this causes the bot to stroke out and crash if DMed... Too Bad!!!
         return;
@@ -91,6 +93,42 @@ if(command == "kick") {
         message.channel.send(mentionMember + " has successfully been kicked by " + message.member + "!");
     };
 
+//===============================================================================================================
+if(command == "ban") { // Ban a specified user
+    if(message.channel.type === 'DM') { // Check if message channel is a direct message 
+        message.channel.send("I can't ban from DM's. Try again in the server"); // this causes the bot to stroke out and crash if DMed... Too Bad!!!
+        return;
+    };
+
+    if(!message.member.hasPermission('BAN_MEMBERS')) { // Checks if the user have permission to ban
+        message.channel.send("You are overstepping your bounds! (You don't have permission todo that)");
+        return;
+    };
+
+    let mentionMember = message.mentions.members.first();
+    if(!mentionMember) { // Shows this error if user doesn't mention a memeber
+        message.channel.send("This isn't a game of russian roulette, who do you want me to ban");
+        return;
+    }
+
+    // Compare's dick sizes (See's who has the higher role)
+    let authorHighestRole = message.member.highestRole.position;
+    let mentionHighestRole = mentionMember.highestRole.position;
+
+    if(mentionHighestRole >= authorHighestRole) { // shows this error message if the mentioned user has the same role or a higher role
+        message.channel.send("You can't ban people with a equal or a higher position then yourself");
+        return;
+    };
+
+    if(!mentionMember.bannable) { // Shows this error if the bot can't ban the user  
+        message.channel.send("I don't have permissions to ban this user");
+        return
+    };
+
+    mentionMember.ban() // If all steps are completed successfully tries to ban the user
+        .catch(console.error);
+        message.channel.send(mentionMember + " has successfully been ban by " + message.member + "!");
+    };
 }); // Command List End
 
 
