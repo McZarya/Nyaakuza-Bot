@@ -42,3 +42,7 @@ client.on('message', message => {
 // If all steps are completed successfully tries to kick the user
 
 ===============================================================================================================
+
+        message.channel.send("Furthermore you can find the bots GitHub here: https://github.com/McZarya/Nyaakuza-Bot");
+
+===============================================================================================================
