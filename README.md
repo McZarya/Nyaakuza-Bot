@@ -13,4 +13,5 @@ Once you have that done, save the file.
 
 3: Once it has finished installing all the dependencies, you can run start.bat.
 
+## Note: This bot is not finished and may have problems or not work at all
 Reflux Software Developments or its employees not responsible for anything you do with this bot.
