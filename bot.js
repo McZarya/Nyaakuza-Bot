@@ -10,9 +10,27 @@ const cmdsArray = [
     " ",
     "Ban - Bans a specified user from the server",
     " ",
-    "GitHub - Send a link to the bots GitHub",
+    "Mute - Mutes a specified user in the server",
+    " ",
+    "Unmute - Do I really need to tell what this does?",
+    " ",
+    "Avatar - Gets a specified users profile picture",
+    " ",
+    "Changelog - Post's The most recent changes to the bot",
+    " ",
+    "GitHub - Sends a link to the bots GitHub",
     " "
 ];
+
+const changelog = [
+    "Nyaakuza Bot Version 1.0.0",
+    " ",
+    "Added Change Log (No Shit)",
+    "Added Mute and Unmute feature",
+    "Added 'avatar' command witch posts a specified users profile picture",
+    "Fixed some minor errors",
+    " "
+]
 
 client.once('ready', () => { // Shit to be spammed in Console upon launch.
     console.log('====================================================================================================')
@@ -56,6 +74,26 @@ if(command == "wakeup"){ // Check The Bots Connectivity
 if(command == "github"){ // Sends a link to the bots GitHub repository 
     message.reply("you can find the bots GitHub repository at: https://github.com/McZarya/Nyaakuza-Bot");
 }
+
+//===============================================================================================================
+if (command == 'avatar') {
+    const user = message.mentions.users.first() || message.author;
+    const avatarEmbed = new Discord.RichEmbed()
+        .setColor(0x333333)
+        .setAuthor(user.username)
+        .setImage(user.avatarURL);
+    message.channel.send(avatarEmbed);
+}
+
+//===============================================================================================================
+if(command == "changelog"){
+    message.reply("Here is the most recent update.");
+    const embed = new Discord.RichEmbed()
+    .addField("Change Log", changelog)
+    .addField("Sanity Lost", "2");
+    message.channel.send({embed: embed});
+}
+
 //===============================================================================================================
 if(command == "kick") { // Kicks a specified user
     if(message.channel.type === 'DM') { // Check if message channel is a direct message 
@@ -70,7 +108,7 @@ if(command == "kick") { // Kicks a specified user
 
     let mentionMember = message.mentions.members.first();
     if(!mentionMember) { // Shows this error if user doesn't mention a memeber
-        message.channel.send("This isn't a game of russian roulette, who do you want me to kick");
+        message.channel.send("This isn't a game of russian roulette, who do you want me to kick?");
         return;
     }
 
@@ -107,7 +145,7 @@ if(command == "ban") { // Ban a specified user
 
     let mentionMember = message.mentions.members.first();
     if(!mentionMember) { // Shows this error if user doesn't mention a memeber
-        message.channel.send("This isn't a game of russian roulette, who do you want me to ban");
+        message.channel.send("This isn't a game of russian roulette, who do you want me to ban?");
         return;
     }
 
@@ -127,9 +165,103 @@ if(command == "ban") { // Ban a specified user
 
     mentionMember.ban() // If all steps are completed successfully tries to ban the user
         .catch(console.error);
-        message.channel.send(mentionMember + " has successfully been ban by " + message.member + "!");
+        message.channel.send(mentionMember + " has successfully been banned by " + message.member + "!");
     };
+
+//===============================================================================================================
+if(command == "mute") { // Mute a specified user
+    if(message.channel.type === 'DM') { // Check if message channel is a direct message 
+        message.channel.send("I can't mute from DM's. Try again in the server"); // this causes the bot to stroke out and crash if DMed... Too Bad!!!
+        return;
+    };
+
+    if(!message.member.hasPermission('KICK_MEMBERS')) { // Checks if the user have permission to mute (technically their isnt a MUTE_Members for text chat just voice so this can be made what ever perm)
+        message.channel.send("You are overstepping your bounds! (You don't have permission todo that)");
+        return;
+    };
+
+    let mentionMember = message.mentions.members.first();
+    if(!mentionMember) { // Shows this error if user doesn't mention a memeber
+        message.channel.send("This isn't a game of russian roulette, who do you want me to mute?");
+        return;
+    }
+
+    // Compare's dick sizes (See's who has the higher role)
+    let authorHighestRole = message.member.highestRole.position;
+    let mentionHighestRole = mentionMember.highestRole.position;
+
+    if(mentionHighestRole >= authorHighestRole) { // shows this error message if the mentioned user has the same role or a higher role
+        message.channel.send("You can't mute people with a equal or a higher position then yourself");
+        return;
+    };
+
+    let muteuser = message.mentions.members.first(); 
+    let muterole = message.guild.roles.find('name',"Muted");
+    // Error: (node:19956) DeprecationWarning: Collection#find: pass a function instead. 
+    //This has been updated to #Collection.find(x => x.name === "name"), will fix later this works for now
+    muteuser.addRole(muterole);('Muted') // If all steps are completed successfully tries to ban the user
+       // .catch(console.error); // Error Catching is causing command to stroke out... Too Bad!!!
+        message.channel.send(mentionMember + " Silence Yourself");
+        message.channel.send(mentionMember + " has successfully been muted by " + message.member + "!");
+    };
+
+//===============================================================================================================
+if(command == "unmute") { // Mute a specified user
+    if(message.channel.type === 'DM') { // Check if message channel is a direct message 
+        message.channel.send("I can't unmute from DM's. Try again in the server"); // this causes the bot to stroke out and crash if DMed... Too Bad!!!
+        return;
+    };
+
+    if(!message.member.hasPermission('KICK_MEMBERS')) { // Checks if the user have permission to mute (technically their isnt a MUTE_Members for text chat just voice so this can be made what ever perm)
+        message.channel.send("You are overstepping your bounds! (You don't have permission todo that)");
+        return;
+    };
+
+    let mentionMember = message.mentions.members.first();
+    if(!mentionMember) { // Shows this error if user doesn't mention a memeber
+        message.channel.send("This isn't a game of russian roulette, who do you want me to unmute?");
+        return;
+    }
+
+    // Compare's dick sizes (See's who has the higher role)
+    let authorHighestRole = message.member.highestRole.position;
+    let mentionHighestRole = mentionMember.highestRole.position;
+
+    if(mentionHighestRole >= authorHighestRole) { // shows this error message if the mentioned user has the same role or a higher role
+        message.channel.send("You can't unmute people with a equal or a higher position then yourself");
+        return;
+    };
+
+    let muteuser = message.mentions.members.first(); 
+    let muterole = message.guild.roles.find('name',"Muted");
+    // Error: (node:19956) DeprecationWarning: Collection#find: pass a function instead. 
+    //This has been updated to #Collection.find(x => x.name === "name"), will fix later this works for now
+    muteuser.removeRole(muterole);('Muted') // If all steps are completed successfully tries to ban the user
+       // .catch(console.error); // Error Catching is causing command to stroke out... Too Bad!!!
+        message.channel.send(mentionMember + " You may speak again");
+        message.channel.send(mentionMember + " has successfully been unmuted by " + message.member + "!");
+    };
+
+//===============================================================================================================
+
 }); // Command List End
+
+/* yandere dev be like
+if
+    else if
+        else if
+            else if
+                else if
+                    else if
+                        else if
+                            else if
+                                else if
+                                    else if
+                                        else if
+                                            else if
+                                                else if
+                                                    else if
+*/
 
 
 client.login(config.token);
