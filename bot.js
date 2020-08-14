@@ -247,20 +247,36 @@ if(command == "unmute") { // Mute a specified user
 }); // Command List End
 
 /* yandere dev be like
-if
-    else if
-        else if
-            else if
-                else if
-                    else if
-                        else if
-                            else if
-                                else if
-                                    else if
-                                        else if
-                                            else if
-                                                else if
-                                                    else if
+if(false){
+}
+    else if(false){
+    }
+        else if(false){
+        }
+            else if(false){
+            }
+                else if(false){
+                }
+                    else if(false){
+                    }
+                        else if(false){
+                        }
+                            else if(false){
+                            }
+                                else if(false){
+                                }
+                                    else if(false){
+                                    }
+                                        else if(false){
+                                        }
+                                            else if(false){
+                                            }
+                                                else if(false){
+                                                }
+                                                    else if(false){
+                                                    }
+                                                        else if(false){
+                                                    }
 */
 
 
