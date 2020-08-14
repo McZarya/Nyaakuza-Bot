@@ -46,3 +46,19 @@ client.on('message', message => {
         message.channel.send("Furthermore you can find the bots GitHub here: https://github.com/McZarya/Nyaakuza-Bot");
 
 ===============================================================================================================
+//old bots mute function
+
+if (message.content.toLowerCase().startsWith(config.prefix + "mute")) {
+    var mem = msg.mentions.members.first();
+    if (msg.guild.roles.find("name", "Muted")) {
+      mem.addRole(msg.guild.roles.find("name", "Muted")).then(() => {
+        msg.channel.send(mem.displayName + " has successfully been muted!");
+      }).catch(e => {
+        msg.channel.send("An error occured!");
+        console.log(e);
+      });
+
+    }
+  }
+
+===============================================================================================================
