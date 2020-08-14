@@ -3,8 +3,17 @@
 A Moderation Bot For The Nyaakuza.
 
 ![](nyaakuzalogoflipped.png)
+# Change Log
+Change Log
+Nyaakuza Bot Version 1.0.0
 
-Install Instructions
+Added Change Log (No Shit)
+Added Mute and Unmute feature
+Added 'avatar' command witch posts a specified users profile picture
+Fixed some minor errors
+Sanity Lost
+2
+# Install Instructions
 
 1: Open config.json in your code editor and enter the token, prefix and client id in each of the quotation marks
 Once you have that done, save the file.
