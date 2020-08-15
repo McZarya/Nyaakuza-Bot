@@ -62,3 +62,47 @@ if (message.content.toLowerCase().startsWith(config.prefix + "mute")) {
   }
 
 ===============================================================================================================
+
+message.channel.bulkDelete(messages);
+      // Logging the number of messages deleted on both the channel and console.
+      message.channel
+        .send(
+          "Deletion of messages successful. \n Total messages deleted including command: " +
+            newamount
+        )
+        .then(message => message.delete(5000));
+      console.log(
+        "Deletion of messages successful. \n Total messages deleted including command: " +
+          newamount
+      );
+
+===============================================================================================================
+
+if(command == "purge") { // Deletes a specified amount of messages in the given channel 
+    if(message.channel.type === 'DM') { // Check if message channel is a direct message 
+        message.channel.send("I can't purge DM's. Try again in the server"); // this causes the bot to stroke out and crash if DMed... Too Bad!!!
+        return;
+    };
+
+    if(!message.member.hasPermission('MANAGE_MESSAGES')) { // Checks if the user have permission to purge
+        message.channel.send("You are overstepping your bounds! (You don't have permission todo that)");
+        return;
+    }; 
+
+    
+
+    message.channel.bulkDelete(messages);
+    // Logging the number of messages deleted on both the channel and console.
+    message.channel
+      .send(
+        "Deletion of messages successful. \n Total messages deleted including command: " +
+          newamount
+      )
+      .then(message => message.delete(5000));
+    console.log(
+      "Deletion of messages successful. \n Total messages deleted including command: " +
+        newamount
+    );
+};
+
+===============================================================================================================
