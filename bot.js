@@ -10,6 +10,8 @@ const cmdsArray = [
     " ",
     "Ban - Bans a specified user from the server",
     " ",
+    "Purge - Deletes a Specified number of messages from the channel (currently a little buggy, Check change log for more info) ",
+    " ",
     "Mute - Mutes a specified user in the server",
     " ",
     "Unmute - Do I really need to tell what this does?",
@@ -25,10 +27,7 @@ const cmdsArray = [
 const changelog = [
     "Nyaakuza Bot Version 1.0.0",
     " ",
-    "Added Change Log (No Shit)",
-    "Added Mute and Unmute feature",
-    "Added 'avatar' command witch posts a specified users profile picture",
-    "Fixed some minor errors",
+    "Added Purge Function (Currently Funcinal with minor errors.. just +1 to the amount of messages you want to purge)",
     " "
 ]
 
@@ -38,7 +37,7 @@ client.once('ready', () => { // Shit to be spammed in Console upon launch.
     console.log("Created By Reflux Software Developments And Developed By McZarya.")
     console.log("Reflux Software Developments or its employees not responsible for anything you do with this bot.")
     console.log('====================================================================================================')
-    console.log('Ready To Surppress the masses');
+    console.log('Ready To Surppress The Masses');
     console.log('====================================================================================================')
     
     client.user.setStatus('idle') //Bot's status and game/streaming. dnd, idle, online
@@ -90,7 +89,7 @@ if(command == "changelog"){
     message.reply("Here is the most recent update.");
     const embed = new Discord.RichEmbed()
     .addField("Change Log", changelog)
-    .addField("Sanity Lost", "2");
+    .addField("Sanity Lost", "30");
     message.channel.send({embed: embed});
 }
 
@@ -243,7 +242,14 @@ if(command == "unmute") { // Mute a specified user
     };
 
 //===============================================================================================================
+if(command == "purge") { // deletes a specified amount of messages
+    var dn = message.content.split(" ")[1];
+    //var fdn = dn + 1; // Can't get the bot to compensate for the command entry so till I figure it out yall just gotta take the amount of messages you want gone and add 1
+    message.channel.bulkDelete(dn);
+    message.channel.send("Successfully deleted " + dn + " message(s)!")
+  }
 
+//===============================================================================================================
 }); // Command List End
 
 /* yandere dev be like
