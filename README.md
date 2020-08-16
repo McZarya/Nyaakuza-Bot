@@ -4,15 +4,7 @@ A Moderation Bot For The Nyaakuza.
 
 ![](nyaakuzalogoflipped.png)
 # Change Log
-Change Log
-Nyaakuza Bot Version 1.0.0
-
-Added Change Log (No Shit)
-Added Mute and Unmute feature
-Added 'avatar' command witch posts a specified users profile picture
-Fixed some minor errors
-Sanity Lost
-2
+With this release the bot is for the most part done and functional, just a few bug fixes that need to be done on certain modules. I may add more features at a later date (I.E. Music Player) but as for now it does what we wanted it to accomplish for the discord server
 # Install Instructions
 
 1: Open config.json in your code editor and enter the token, prefix and client id in each of the quotation marks
@@ -22,5 +14,5 @@ Once you have that done, save the file.
 
 3: Once it has finished installing all the dependencies, you can run start.bat.
 
-## Note: This bot is not finished and may have problems or not work at all
+## Note: Like most things you may encounter errors if so report them to McZarya#0001 on discord
 Reflux Software Developments or its employees not responsible for anything you do with this bot.
