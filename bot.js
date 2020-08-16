@@ -18,6 +18,8 @@ const cmdsArray = [
     " ",
     "Avatar - Gets a specified users profile picture",
     " ",
+    "Calc - A Calculator(Addition:+, Multiplication:*, division:/)", 
+    " ",
     "Changelog - Post's The most recent changes to the bot",
     " ",
     "GitHub - Sends a link to the bots GitHub",
@@ -244,10 +246,16 @@ if(command == "unmute") { // Mute a specified user
 //===============================================================================================================
 if(command == "purge") { // deletes a specified amount of messages
     var dn = message.content.split(" ")[1];
-    //var fdn = dn + 1; // Can't get the bot to compensate for the command entry so till I figure it out yall just gotta take the amount of messages you want gone and add 1
+    //var fdn = dn + 1; // Can't get the bot to compensate for the command entry... Too Bad!!! so till I figure it out yall just gotta take the amount of messages you want gone and add 1 
     message.channel.bulkDelete(dn);
     message.channel.send("Successfully deleted " + dn + " message(s)!")
   }
+
+//===============================================================================================================
+/* if(command == "calc") {
+    var ca = message.content.substring(message.content.indexOf(" "));
+    message.reply(ca + " is " + eval(ca).toFixed(2));
+} */
 
 //===============================================================================================================
 }); // Command List End
