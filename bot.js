@@ -18,7 +18,7 @@ const cmdsArray = [
     " ",
     "Avatar - Gets a specified users profile picture",
     " ",
-    "Calc - A Calculator(Addition:+, Multiplication:*, division:/)", 
+    "Calc - A Calculator(Disabled till I patch it cause it kept crashing the bot)", // A Calculator(Addition:+, Multiplication:*, division:/
     " ",
     "Changelog - Post's The most recent changes to the bot",
     " ",
@@ -29,7 +29,9 @@ const cmdsArray = [
 const changelog = [
     "Nyaakuza Bot Version 1.0.0",
     " ",
-    "Added Purge Function (Currently Funcinal with minor errors.. just +1 to the amount of messages you want to purge)",
+    "Version 1.0.0 Release!!! 😀",
+    " ",
+    "With this release the bot is for the most part done and functional, just a few bug fixes that need to be done on certain modules. I may add more features at a later date (I.E. Music Player) but as for now it does what we wanted it to accomplish for the discord server",
     " "
 ]
 
@@ -42,16 +44,15 @@ client.once('ready', () => { // Shit to be spammed in Console upon launch.
     console.log('Ready To Surppress The Masses');
     console.log('====================================================================================================')
     
-    client.user.setStatus('idle') //Bot's status and game/streaming. dnd, idle, online
+    client.user.setStatus('') //Bot's status and game/streaming. online, idle, dnd, invisible 
     client.user.setPresence({
         game: {
-            name: 'Under Construction ',
-            type: "Playing", // Playing, Listening, Watching, STREAMING
+            name: "",
+            type: "", // PLAYING, STREAMING, LISTENING, WATCHING, CUSTOM_STATUS
 			// url: "URL Here" <- link for stream when using the 'STREAMING' status
         }
     });
 });
-
 
 
 client.on('message', message => { // Command List Start
@@ -91,7 +92,7 @@ if(command == "changelog"){
     message.reply("Here is the most recent update.");
     const embed = new Discord.RichEmbed()
     .addField("Change Log", changelog)
-    .addField("Sanity Lost", "30");
+    .addField("Sanity Lost", "0");
     message.channel.send({embed: embed});
 }
 
@@ -252,7 +253,7 @@ if(command == "purge") { // deletes a specified amount of messages
   }
 
 //===============================================================================================================
-/* if(command == "calc") {
+/* if(command == "calc") { // Causes bot to crash if a invalid operation is entered (X instead of *)... Too Bad!!!
     var ca = message.content.substring(message.content.indexOf(" "));
     message.reply(ca + " is " + eval(ca).toFixed(2));
 } */
