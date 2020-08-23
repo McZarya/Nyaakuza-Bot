@@ -1,4 +1,4 @@
-# Nyaakuza-Bot V1.0.0, Created By Reflux Software Developments And Developed By McZarya
+# Nyaakuza-Bot V1.0.0, Created By Reflux Softworks And Developed By McZarya
 
 A Moderation Bot For The Nyaakuza.
 
@@ -15,4 +15,4 @@ Once you have that done, save the file.
 3: Once it has finished installing all the dependencies, you can run start.bat.
 
 ## Note: Like most things you may encounter errors if so report them to McZarya#0001 on discord
-Reflux Software Developments or its employees not responsible for anything you do with this bot.
+Reflux Softworks or its employees not responsible for anything you do with this bot.

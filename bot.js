@@ -38,8 +38,8 @@ const changelog = [
 client.once('ready', () => { // Shit to be spammed in Console upon launch.
     console.log('====================================================================================================')
     console.log("McZarya's Nyaakuza Bot V1.0.0");
-    console.log("Created By Reflux Software Developments And Developed By McZarya.")
-    console.log("Reflux Software Developments or its employees not responsible for anything you do with this bot.")
+    console.log("Created By Reflux Softworks And Developed By McZarya.")
+    console.log("Reflux Softworks or its employees not responsible for anything you do with this bot.")
     console.log('====================================================================================================')
     console.log('Ready To Surppress The Masses');
     console.log('====================================================================================================')
