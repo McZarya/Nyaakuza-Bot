@@ -6,6 +6,18 @@
  Customers In the Bar
 
 ===============================================================================================================
+Maintenance Notice
+
+    client.user.setStatus('dnd') //Bot's status and game/streaming. online, idle, dnd, invisible 
+    client.user.setPresence({
+        game: {
+            name: "Undergoing Server Maintenance Expect Service Interruptions ",
+            type: "PLAYING", // PLAYING, STREAMING, LISTENING, WATCHING, 
+			// url: "URL Here" <- link for stream when using the 'STREAMING' status
+        }
+    });
+
+===============================================================================================================
 
     client.user.setStatus('dnd') //Bot's status and game/streaming. dnd, idle, online
     client.user.setPresence({
