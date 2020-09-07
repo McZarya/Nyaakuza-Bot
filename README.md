@@ -1,10 +1,10 @@
-# Nyaakuza-Bot V1.0.0, Created By Reflux Softworks And Developed By McZarya
+# Nyaakuza-Bot V1.1.0, Created By Reflux Softworks And Developed By McZarya
 
 A Moderation Bot For The Nyaakuza.
 
 ![](nyaakuzalogoflipped.png)
 # Change Log
-With this release the bot is for the most part done and functional, just a few bug fixes that need to be done on certain modules. I may add more features at a later date (I.E. Music Player) but as for now it does what we wanted it to accomplish for the discord server
+Since the most common message in the server is saying good morning (even if it is 3pm *Cough Cough* Mary) I added a thing so the bot will say good moring back
 # Install Instructions
 
 1: Open config.json in your code editor and enter the token, prefix and client id in each of the quotation marks
