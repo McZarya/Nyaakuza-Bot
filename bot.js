@@ -27,17 +27,25 @@ const cmdsArray = [
 ];
 
 const changelog = [
-    "Nyaakuza Bot Version 1.0.0",
+    "Nyaakuza Bot Version 1.1.0",
     " ",
-    "Version 1.0.0 Release!!! 😀",
+    "The Morning Update",
     " ",
-    "With this release the bot is for the most part done and functional, just a few bug fixes that need to be done on certain modules. I may add more features at a later date (I.E. Music Player) but as for now it does what we wanted it to accomplish for the discord server",
+    "Since the most common message in the server is saying good morning (even if it is 3pm *Cough Cough* Mary) I added a thing so the bot will say good moring back",
     " "
 ]
 
+/*const goodmorning = [ // Why do you guys say good morning so many ways 
+    "Good Morning",
+    "Mornin",
+    "Good Morn",
+    "Good Mornings",
+    "Morning"
+]*/
+
 client.once('ready', () => { // Shit to be spammed in Console upon launch.
     console.log('====================================================================================================')
-    console.log("McZarya's Nyaakuza Bot V1.0.0");
+    console.log("McZarya's Nyaakuza Bot V1.1.0");
     console.log("Created By Reflux Softworks And Developed By McZarya.")
     console.log("Reflux Softworks or its employees not responsible for anything you do with this bot.")
     console.log('====================================================================================================')
@@ -48,7 +56,7 @@ client.once('ready', () => { // Shit to be spammed in Console upon launch.
     client.user.setPresence({
         game: {
             name: "",
-            type: "", // PLAYING, STREAMING, LISTENING, WATCHING, CUSTOM_STATUS
+            type: "", // PLAYING, STREAMING, LISTENING, WATCHING, 
 			// url: "URL Here" <- link for stream when using the 'STREAMING' status
         }
     });
@@ -95,6 +103,34 @@ if(command == "changelog"){
     .addField("Sanity Lost", "0");
     message.channel.send({embed: embed});
 }
+
+//===============================================================================================================
+client.on('message', message => { // arrays wernt functioning right and i'm lazy so this will work for now
+	if (message.content === "Good Morning") { 
+        message.channel.send("Good Morning " + message.member + "!")
+        .catch(e => {
+            message.channel.send("An error occured!");
+          });
+	}
+});
+
+client.on('message', message => { 
+	if (message.content === "Good morning") { 
+        message.channel.send("Good Morning " + message.member + "!")
+        .catch(e => {
+            message.channel.send("An error occured!");
+          });
+	}
+});
+
+client.on('message', message => {
+	if (message.content === "good morning") { 
+        message.channel.send("Good Morning " + message.member + "!")
+        .catch(e => {
+            message.channel.send("An error occured!");
+          });
+	}
+});
 
 //===============================================================================================================
 if(command == "kick") { // Kicks a specified user
