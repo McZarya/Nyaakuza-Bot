@@ -1,4 +1,4 @@
-# Nyaakuza-Bot V1.1.0, Created By Reflux Softworks And Developed By McZarya
+# Nyaakuza-Bot V1.1.0, Developed By McZarya
 
 A Moderation Bot For The Nyaakuza.
 
